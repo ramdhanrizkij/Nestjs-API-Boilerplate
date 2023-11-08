@@ -2,7 +2,7 @@ import { DataSourceOptions } from "typeorm";
 
 // Configure .env file
 const path = `${process.cwd()}/.env.${process.env.NODE_ENV}`;
-require('dotenv').config({ path: path })
+require('dotenv').config()
 
 class ConfigService {
     constructor(private env: { [k: string]: string | undefined }) { }
@@ -48,7 +48,7 @@ class ConfigService {
             entities: ['dist/**/*.entity{.ts,.js}'],
             migrationsTableName: 'migration',
             migrations: ['dist/app/migration/*{.ts,.js}'],
-            synchronize: false,
+            synchronize: true,
         };
     }
 }
